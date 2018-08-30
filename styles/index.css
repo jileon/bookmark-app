@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+   
+  }
+
+.description{
+    height : 200px;
+    width : 600px;
+    border: 5px solid black;
+    display: inline-block;
+}
+
+.descriptionInput{
+    height : 100px;
+    width : 550px;
+ 
+}
+
+.radio-buttons{
+    display: inline-block;
+    border: solid 1px black;
+    margin: 20px;
+}
