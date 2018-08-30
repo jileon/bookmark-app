@@ -2,17 +2,17 @@
 
 
 $(document).ready(function() {
-  // shoppingList.bindEventListeners();
-  // shoppingList.render();
-  
+  bookmarkList.bindEventListeners();
+  bookmarkList.render();
+
+
+
   api.getItems(function(items) {
     items.forEach(function(item){      
       dataStore.addItem(item);
     });
-    //bookmarkList.render();
+    bookmarkList.render();
   });
-
-
 
 });
   

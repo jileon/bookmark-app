@@ -6,6 +6,7 @@ const api = (function(){
   };
 
   const createItem = function(title, url, desc, rating, onSuccess ) {
+    console.log(desc);
     const newItem = JSON.stringify(
       {
         title: title,
