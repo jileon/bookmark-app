@@ -8,24 +8,50 @@
   }
 
 .description{
-    height : 200px;
-    width : 600px;
-    border: 5px solid black;
+    height : 300px;
+    width : 800px;
+    margin-top: 30px;
     display: inline-block;
 }
 
 .descriptionInput{
-    height : 100px;
-    width : 550px;
+    height : 150px;
+    width : 600px;
+    border: 1px solid black;
+    display: inline-block;
+
  
 }
 
 .radio-buttons{
     display: inline-block;
-    border: solid 1px black;
-    margin: 20px;
+    margin-top: 30px;
+    margin-right: 10px;
+    padding-top: 10px;
+    margin-left: 30px;
 }
 
 .bookmark-lists{
     list-style: none;
+}
+.title-url-button{
+ 
+}
+.form-label{
+ 
+}
+
+h2{
+    display: inline-block;
+    text-align: right;
+
+    float: right;
+    
+}
+
+.header-text{
+    width: 750px;
+    height: 50px;
+    display: inline-block;
+
 }

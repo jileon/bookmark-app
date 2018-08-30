@@ -11,11 +11,12 @@
     <header><h1>Bookmarks</h1></header>
 <main>
     <form id="js-shopping-list-form">
-    <div class = "form-label"><label for="bookmark-title-entry">Title</label>
-    </div>
+   
 
     <div>
-            <div>
+            
+            <div class= "title-url-button">
+            <label for="bookmark-title-entry">Title</label>
             <input type="text" name="title-add" class="js-bookmark-title-entry" placeholder="enter title here">
             <label for="bookmark-url-entry">URL</label>
             <input type="text" name="url-add" class="js-bookmark-url-entry" placeholder="enter url here">
@@ -23,20 +24,35 @@
             </div>
         
             <div class = "description">
-                <div>
-                <label for="bookmark-url-entry">description</label>
+                     
+                <div class= "header-text">
+                    
+                        <h2>Minimum Rating</h2>
+                        <h3>description</h2>
+               
+               
                 </div>
-                <input type="text" name="url-add" class="js-bookmark-url-entry descriptionInput" placeholder="enter a description">
-            </div>
+                <div>
+                        <label for="bookmark-url-entry"></label>
+                    <input type="text" name="url-add" class="js-bookmark-url-entry descriptionInput" placeholder="enter a description">
+                     
+                    <div class= "radio-buttons">
+                                    <input type="radio" id="rating-3" name="rating" value="5"><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
+                                        <input type="radio" id="rating-4" name="rating" value="4" checked="checked">&#9733;&#9733;&#9733;&#9734;&#9734;<br>
+                                        <input type="radio" id="rating-3" name="rating" value="3">&#9733;&#9733;&#9733;&#9734;&#9734;<br>
+                                        <input type="radio" id="rating-2" name="rating" value="2">&#9733;&#9733;&#9734;&#9734;&#9734;<br>
+                                        <input type="radio" id="rating-1" name="rating" value="1">&#9733;&#9734;&#9734;&#9734;&#9734;<br>    
+                            </div> 
+                    </div>
+                    
 
-                <div class= "radio-buttons">
-                    <h2>Minimum Rating</h2>
-                        <input type="radio" id="rating-3" name="rating" value="5"> 5<br>
-                            <input type="radio" id="rating-4" name="rating" value="4" checked="checked"> 4<br>
-                            <input type="radio" id="rating-3" name="rating" value="3"> 3<br>
-                            <input type="radio" id="rating-2" name="rating" value="2"> 2<br>
-                            <input type="radio" id="rating-1" name="rating" value="1"> 1<br>    
-                </div>       
+
+
+                </div>
+                
+            
+
+                    
     </div>
     </form>
 
