@@ -2,11 +2,16 @@
 
 const bookmarkList = (function(){
 
-  function generateExpandedElements (item){
+  function generateCondensedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
-    return `
+    return `<div class= "bookmark-item">
         <li class="js-item-element" data-item-id="${item.id}">
           ${itemTitle}
+            <div class= "bookmark-item-description">
+            <h4>description</h4>
+            <h4>${item.rating}</h4>
+            <p>${item.desc}</p>
+            </div>
           <div class="bookmark-item-controls">
 
             <button class="js-item-delete">
@@ -17,9 +22,35 @@ const bookmarkList = (function(){
               <span class="button-label">Visit Site</span>
             </button>
           </div>
-        </li>`;
+        </li>
+        </div>`;
   }
-    
+
+  //===========================================================================
+  function generateExpandedElements (item){
+    let itemTitle = `<span class="item-title">${item.title}</span>`;
+    return `<div class= "bookmark-item">
+        <li class="js-item-element" data-item-id="${item.id}">
+          ${itemTitle}
+            <div class= "bookmark-item-description">
+            <h4>DESCRIPTION</h4>
+            <h4>${item.rating} Stars</h4>
+            <p>${item.desc}</p>
+            </div>
+          <div class="bookmark-item-controls">
+
+            <button class="js-item-delete">
+              <span class="button-label">Delete</span>
+            </button>
+
+            <button class="bookmark-delete js-visitSite">
+              <span class="button-label">Visit Site</span>
+            </button>
+          </div>
+        </li>
+        </div>`;
+  }
+  
     
   //===========================================================================
   function generateBookmarksItemsString(bookmarks) {
@@ -64,9 +95,17 @@ const bookmarkList = (function(){
   }
 
   //============================================================================
+  function handleRadio(){
+    $(".radio-buttons").on('click', function(event){
+      console.log("radio ran");
+     const currentButton = $("input:checked").val()
+     //console.log(currentButton);
+    });
+  }
 
 
-  console.log($('#js-bookmark-list-form').find("#rating-4").val());
+  //============================================================================
+  //console.log($('#js-bookmark-list-form').find("#rating-4").val());
   
   function handleAddSubmit(){
    
@@ -74,12 +113,19 @@ const bookmarkList = (function(){
       event.preventDefault();
       console.log('submit ran');
       let itemTitle =  $('.js-bookmark-title-entry').val();
+      $('.js-bookmark-title-entry').val(" ");
       let itemURL = $('.js-bookmark-url-entry').val();
+      $('.js-bookmark-url-entry').val(" ");
+      let itemDesc = $(".descriptionInput").val();
+      $(".descriptionInput").val(" ");
+      let itemRating = $(".radio-buttons").find("input:checked").val();
       console.log(itemTitle);
       console.log(itemURL);
-      api.createItem(itemTitle, itemURL, 'testing', 5, function(response){
+      console.log(itemRating);
+      api.createItem(itemTitle, itemURL, itemDesc, itemRating, function(response){
         dataStore.addItem(response);
         console.log(response);
+
         render();
       });
 
@@ -98,6 +144,8 @@ const bookmarkList = (function(){
   function bindEventListeners() {
     deleteBookmark();
     handleAddSubmit();
+    handleRadio();
+   
   }
     
     

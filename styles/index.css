@@ -35,6 +35,10 @@
 
 .bookmark-lists{
     list-style: none;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 20px;
+    border: solid 1px blue;
 }
 .title-url-button{
  
@@ -65,4 +69,33 @@ h2{
 
 main{
     margin: 0px 50px;
+}
+
+.bookmark-item{
+    border: solid 1px red;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    height: 300px;
+    width: 90%;
+}
+
+.add-bookmark-button{
+    text-align: right;
+    border: solid 1px black;
+    float: right;
+    margin-top: 10px;
+}
+
+.bookmark-submit-button{
+    display: inline-block;
+    text-align: center;
+    border: solid 1px black;
+    float: right;
+    margin-top: 20px;
+}
+
+.url-input{
+    width: 390px;
 }
