@@ -2,7 +2,7 @@ const api = (function(){
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/janet';
     
   const getItems = function(callback) {
-    return $.getJSON(BASE_URL + '/bookmarks', callback);
+     $.getJSON(BASE_URL + '/bookmarks', callback);
   };
 
   const createItem = function(title, url, desc, rating, onSuccess ) {
