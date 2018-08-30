@@ -25,3 +25,7 @@
     border: solid 1px black;
     margin: 20px;
 }
+
+.bookmark-lists{
+    list-style: none;
+}
