@@ -4,6 +4,7 @@ const bookmarkList = (function(){
 
   function generateCondensedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
+    let itemStars = `<span class="item-title">${item.title}</span>`;
     return `<div class= "bookmark-item-condensed">
         <li class="js-item-element" data-item-id="${item.id}">
           ${itemTitle}
@@ -26,7 +27,7 @@ const bookmarkList = (function(){
   function generateExpandedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
     return `<div class= "bookmark-item">
-        <li class="js-item-element" data-item-id="${item.id}">
+        <li class="js-item-element  list-item-element" data-item-id="${item.id}">
           ${itemTitle}
             
             <div class="ratings">
@@ -34,8 +35,9 @@ const bookmarkList = (function(){
             </div>
             <div class= "bookmark-item-description">
             <h4>DESCRIPTION</h4>
+            <div class="list-description">
             <p>${item.desc}</p>
-            
+            </div>
           <div class="bookmark-item-controls">
 
             <button class="js-item-delete">
@@ -74,25 +76,23 @@ const bookmarkList = (function(){
   function render() {
     console.log('`render` ran');
     let items = dataStore.bookmarks;
-    // Filter item list if store prop `searchTerm` is not empty
+    let bookmarkListString = generateBookmarksItemsString(items)
+  
+//==========================================================
     items = items.filter(function(items){
       if( items.rating === dataStore.filterRating){
         return items;
+        ;
       } 
-      if(dataStore.filterRating==="All"){
-        items = dataStore.bookmarks;
-      }
-
-
     });
-    // render the shopping list in the DOM
-    const bookmarkListString = generateBookmarksItemsString(items);
-    //const bookmarkCondensedString = generateCondensedItemsString(items);
-
   
+    if (items.filterRating===1){
+    items = dataStore.bookmarks;
+    }
 
-
-
+    bookmarkListString = generateBookmarksItemsString(items);
+    // render the bookmark list in the DOM
+    //const bookmarkCondensedString = generateCondensedItemsString(items);
 
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
@@ -138,21 +138,19 @@ const bookmarkList = (function(){
       event.preventDefault();
       console.log('submit ran');
       let itemTitle =  $('.js-bookmark-title-entry').val();
-      $('.js-bookmark-title-entry').val(" ");
       let itemURL = $('.js-bookmark-url-entry').val();
-      $('.js-bookmark-url-entry').val(" ");
-      let itemDesc = $(".descriptionInput").val();
-      $(".descriptionInput").val(" ");
+      let itemDesc = $(".js-bookmark-description-entry").val();
+      console.log(itemDesc);
       let itemRating = $(".radio-buttons").find("input:checked").val();
-      console.log(itemTitle);
-      console.log(itemURL);
-      console.log(itemRating);
       api.createItem(itemTitle, itemURL, itemDesc, itemRating, function(response){
         dataStore.addItem(response);
-        console.log(response);
-
+        //console.log(response);
         render();
       });
+      // $('.js-bookmark-title-entry').val(" ");
+      //   $('.js-bookmark-url-entry').val(" ");
+      //   $(".js-bookmark-description-entry").val(" ");
+
 
     });
   }
