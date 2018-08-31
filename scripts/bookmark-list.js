@@ -4,7 +4,7 @@ const bookmarkList = (function(){
 
   function generateCondensedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
-    let itemExpanded = `${item.expanded}`
+    let itemExpanded = `${item.expanded}`;
     return `<div class= "bookmark-item">
         <li class="js-item-element  list-item-element-condensed expanded-${item.expanded} " data-item-id="${item.id}">
           ${itemTitle}
@@ -18,7 +18,7 @@ const bookmarkList = (function(){
   //===========================================================================
   function generateExpandedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
-    let itemExpanded = `${item.expanded}`
+    let itemExpanded = `${item.expanded}`;
     return `<div class= "bookmark-item">
         <li class="js-item-element  list-item-element expanded-${item.expanded}" data-item-id="${item.id}">
           ${itemTitle}
@@ -53,17 +53,24 @@ const bookmarkList = (function(){
   //===========================================================================
   function generateBookmarksItemsString(bookmarks) {
     
-    const items = bookmarks.map((item) => generateExpandedElements(item));
+    const items = bookmarks.map((item) => {
+      if(item.expanded){
+        return  generateExpandedElements(item);
+      } else {
+        return  generateCondensedElements(item);
+      }
+     
+    });
     return items.join('');
   }
     
     
   //============================================================================
-  function generateCondensedItemsString(bookmarks) {
+  // function generateCondensedItemsString(bookmarks) {
     
-    const items = bookmarks.map((item) => generateCondensedElements(item));
-    return items.join('');
-  }
+  //   const items = bookmarks.map((item) => generateCondensedElements(item));
+  //   return items.join('');
+  // }
     
     
   //============================================================================
@@ -72,7 +79,14 @@ const bookmarkList = (function(){
   function render() {
     console.log('`render` ran');
     let items = dataStore.bookmarks;
-    let bookmarkListString = generateBookmarksItemsString(items)
+    let bookmarkListString = generateBookmarksItemsString(items);
+
+    if (dataStore.error) {
+      const el = generateError(dataStore.error);
+      $('.error-container').html(el);
+    } else {
+      $('.error-container').empty();
+    }
   
     //==========================================================
     items = items.filter(function(items){
@@ -92,10 +106,11 @@ const bookmarkList = (function(){
 
     bookmarkListString = generateBookmarksItemsString(items);
     // render the bookmark list in the DOM
-    const bookmarkCondensedString = generateCondensedItemsString(items);
+  
 
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
+
     //$('.bookmark-lists').html(bookmarkCondensedString);
   }
     
@@ -123,7 +138,7 @@ const bookmarkList = (function(){
   function handleRadio(){
     $(".radio-buttons").on('click', function(event){
       console.log("radio ran");
-      const currentButton = $("input:checked").val()
+      const currentButton = $("input:checked").val();
       //console.log(currentButton);
     });
   }
@@ -142,11 +157,19 @@ const bookmarkList = (function(){
       let itemDesc = $(".js-bookmark-description-entry").val();
       console.log(itemDesc);
       let itemRating = $(".radio-buttons").find("input:checked").val();
-      api.createItem(itemTitle, itemURL, itemDesc, itemRating, function(response){
-        dataStore.addItem(response);
-        //console.log(response);
-        render();
-      });
+      api.createItem(itemTitle, itemURL, itemDesc, itemRating, 
+        
+        function(response){
+          dataStore.addItem(response);
+          //console.log(response);
+          render();
+        }, 
+
+        function(err){
+          dateStore.error =  error.responseJSON.message;
+          console.log(dataStore.error);
+          render();}
+      );
       // $('.js-bookmark-title-entry').val(" ");
       //   $('.js-bookmark-url-entry').val(" ");
       //   $(".js-bookmark-description-entry").val(" ");
@@ -164,16 +187,6 @@ const bookmarkList = (function(){
       const id = getItemIdFromElement(event.target);
       dataStore.toggleExpanded(id);
       console.log(this);
-      if ($(this).hasClass("expanded-true")){
-        console.log("=======================")
-        console.log($(event.target));
-        $(".bookmark-lists").css( "background-color", "grey" );
-        //$('.bookmark-lists').fadeOut('fast');
-      }
-
-      if ($(this).hasClass("expanded-false")){
-        $(".bookmark-lists").css( "background-color", "white" );
-      }
       render();
     });
      

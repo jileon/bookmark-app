@@ -4,7 +4,6 @@
   
   body {
     font-family: 'Roboto', sans-serif;
-    background-color: white;
    
   }
 
@@ -136,7 +135,7 @@ main{
 }
 
 .url-input{
-    width: 100%;
+    width: 50%;
 }
 
 .list-description{

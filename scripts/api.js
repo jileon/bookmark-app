@@ -5,14 +5,15 @@ const api = (function(){
      $.getJSON(BASE_URL + '/bookmarks', callback);
   };
 
-  const createItem = function(title, url, desc, rating, onSuccess ) {
+  const createItem = function(title, url, desc, rating, onSuccess, error ) {
     console.log(desc);
     const newItem = JSON.stringify(
       {
         title: title,
         url: url,
         desc: desc,
-        rating: rating
+        rating: rating,
+        error: error
       });
    
     return $.ajax({

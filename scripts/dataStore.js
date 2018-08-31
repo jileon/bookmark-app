@@ -36,9 +36,7 @@ const dataStore = (function(){
     bookmark.expanded = !bookmark.expanded;
   };
 
-  //   const bookmarks = Object.assign{expanded:false}
  
-
   return {
     bookmarks,
     error,
