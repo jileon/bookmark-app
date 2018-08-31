@@ -6,7 +6,7 @@ const bookmarkList = (function(){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
     let itemExpanded = `${item.expanded}`;
     return `<div class= "bookmark-item">
-        <li class="js-item-element  list-item-element-condensed expanded-${item.expanded} " data-item-id="${item.id}">
+        <li class="js-item-element   list-item-element list-item-element-condensed expanded-${item.expanded} " data-item-id="${item.id}">
           ${itemTitle}
             <div class="ratings">
             <h4>${item.rating} Stars</h4>
@@ -111,23 +111,17 @@ const bookmarkList = (function(){
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
 
-    if(dataStore.error){
-      $('.js-error').html(`<p>OOPS! Error : ${dataStore.error}<p>`);
-      $('.js-error').show();
-      dataStore.error=null;}
-
-
 
     if(dataStore.error){
       $('.js-error').show();
-      $('.js-error').html(`<p>Error : ${dataStore.error}<p>`);
-      //  console.log("TESTING ERROR DIV");}
+      $('.js-error').html(`<p> Oops! Error : ${dataStore.error}<p>`);
+      console.log("TESTING ERROR DIV");
       dataStore.error=null;}
-    // else{
-    //   $('.js-error').html('');
-    //   $('.js-error').show();
-    //   console.log(dataStore.error);
-    // }
+    else{
+      $('.js-error').html('');
+      $('.js-error').hide();
+      console.log(dataStore.error);
+    }
 
 
 

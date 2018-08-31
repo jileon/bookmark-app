@@ -35,10 +35,17 @@
     
 }
 
+
+.item-title{
+    margin-top: 10px;
+}
+
+
 .list-item-element{
     color: black;
     border: solid 2px grey;
-    height : 225px;
+  
+    height : 100%;
 }
 
 .list-item-element-condensed{
@@ -90,7 +97,7 @@ main{
     margin-top: 20px;
     margin-left: 20px;
     padding: 10px;
-    height: 150px;
+    height: 500px
     width: 90%;
 }
 
@@ -208,6 +215,8 @@ main{
     padding: 10px;
     margin-top: 10px;
 }
+
+
 
 
 
