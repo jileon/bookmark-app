@@ -77,7 +77,18 @@ main{
     margin-top: 20px;
     margin-left: 20px;
     padding: 10px;
-    height: 300px;
+    height: 60%;
+    width: 90%;
+    text-align: center;
+}
+
+.bookmark-item-expanded{
+    border: solid 1px red;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    height: 150px;
     width: 90%;
 }
 
@@ -101,5 +112,15 @@ main{
 }
 
 .bookmark-item-controls{
+    
+}
+
+.bookmark-item-description{
+    border: solid 2px blue;
+    height: 100%;
     display: none;
+}
+
+.ratings{
+    border: solid 2px pink;
 }

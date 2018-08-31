@@ -28,11 +28,14 @@ const bookmarkList = (function(){
     return `<div class= "bookmark-item">
         <li class="js-item-element" data-item-id="${item.id}">
           ${itemTitle}
+            
+            <div class="ratings">
+            <h4>${item.rating} Stars</h4>
+            </div>
             <div class= "bookmark-item-description">
             <h4>DESCRIPTION</h4>
             <p>${item.desc}</p>
-            </div>
-            <h4>${item.rating} Stars</h4>
+            
           <div class="bookmark-item-controls">
 
             <button class="js-item-delete">
@@ -42,6 +45,7 @@ const bookmarkList = (function(){
             <a href=${item.url} target="_blank"><button class="bookmark-delete js-visitSite">
               <span class="button-label">Visit Site</span>
             </button></a>
+            </div>
           </div>
         </li>
         </div>`;
@@ -143,7 +147,7 @@ const bookmarkList = (function(){
   //============================================================================    
   function handleExpanded(){
     $('.bookmark-lists').click(function(){
-      $('.bookmark-item-controls').slideToggle("slow");
+      $('.bookmark-item-description').slideToggle("slow");
       console.log('expanded ran');
     });
 

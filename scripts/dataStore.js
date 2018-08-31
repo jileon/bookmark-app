@@ -11,7 +11,7 @@ const dataStore = (function(){
     this.bookmarks.splice(index,1);
 
   };
-
+//   const bookmarks = Object.assign{expanded:false}
  
 
   return {
