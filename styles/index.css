@@ -16,6 +16,7 @@
     font-family: 'Lobster', cursive;
     color:white;
     margin-left: 5%;
+    text-align: center
   }
 
   .title-url-button{
@@ -70,6 +71,8 @@
 
 .item-title{
     margin-top: 10px;
+    font-family: 'Lobster', cursive;
+    font-size: 30px
 }
 
 
@@ -184,11 +187,11 @@ float: right;
 }
 
 .list-description{
-    height: 50px;
+    height: 70px;
     border: double grey 6px;
     margin-bottom: 10px;
     display: inline-block;
-    width: 40%;
+    width: 80%;
   
 }
 
@@ -259,8 +262,7 @@ float: right;
 .js-error{
     margin-top: 10px;
     color: red;
-    padding: 10px;
-    margin-top: 10px;
+    height: 20px;
 }
 
 
@@ -274,7 +276,7 @@ float: right;
      .bookmark-form{
         border: solid 1px black;
         color:black;
-        width: 65%;
+        
         height: 500px;
     }
     
@@ -353,7 +355,6 @@ float: right;
      .bookmark-form{
         border: solid 1px black;
         color:black;
-        width: 65%;
         height: 600px;
     }
     
