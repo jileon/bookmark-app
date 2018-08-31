@@ -26,18 +26,6 @@
  
 }
 
-.descriptionInput{
-    height : 160px;
-    width : 50%;
-    
-   
- 
-}
-
-
-
-
-
 .bookmark-lists{
     list-style: none;
     margin-bottom: 80px;
@@ -59,23 +47,27 @@
     height : 75px;
 }
 
-
+.descriptionInput{
+    height : 140px;
+    width : 55%;
+    margin-left: 10px;
+    border: solid 1px black;
+}
 h2{
     text-align: center;
     margin-top: 0px;
+    width: 100%;
 }
 .input-radio{
     color: lightblue;
     text-align: center;
-   
-   
-   
 }
 
 
 .filterRatings {
-    float: right;
-    width: 50%;
+   float: right;
+    width: 40%;
+    border: solid 1px black;
 }
 
 
@@ -151,7 +143,7 @@ main{
     border: solid 1px black;
     color:black;
     width: 65%;
-    height: 400px;
+    height: 350px;
 }
 
 
@@ -209,4 +201,13 @@ main{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: pink;}
+
+.js-error{
+    margin-top: 10px;
+    color: red;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
 

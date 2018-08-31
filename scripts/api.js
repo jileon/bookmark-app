@@ -5,7 +5,7 @@ const api = (function(){
      $.getJSON(BASE_URL + '/bookmarks', callback);
   };
 
-  const createItem = function(title, url, desc, rating, onSuccess, error ) {
+  const createItem = function(title, url, desc, rating, onSuccess, onError ) {
     console.log(desc);
     const newItem = JSON.stringify(
       {
@@ -13,7 +13,7 @@ const api = (function(){
         url: url,
         desc: desc,
         rating: rating,
-        error: error
+        
       });
    
     return $.ajax({
@@ -22,9 +22,8 @@ const api = (function(){
       contentType: 'application/json',
       data: newItem,
       success: onSuccess,
-      error: function(error){
-        console.log(error);
-      },
+      error: onError
+      
     });
   };
 

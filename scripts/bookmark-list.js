@@ -81,12 +81,12 @@ const bookmarkList = (function(){
     let items = dataStore.bookmarks;
     let bookmarkListString = generateBookmarksItemsString(items);
 
-    if (dataStore.error) {
-      const el = generateError(dataStore.error);
-      $('.error-container').html(el);
-    } else {
-      $('.error-container').empty();
-    }
+    // if (dataStore.error) {
+    //   const el = generateError(dataStore.error);
+    //   $('.error-container').html(el);
+    // } else {
+    //   $('.error-container').empty();
+    // }
   
     //==========================================================
     items = items.filter(function(items){
@@ -111,7 +111,26 @@ const bookmarkList = (function(){
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
 
-    //$('.bookmark-lists').html(bookmarkCondensedString);
+    if(dataStore.error){
+      $('.js-error').html(`<p>OOPS! Error : ${dataStore.error}<p>`);
+      $('.js-error').show();
+      dataStore.error=null;}
+
+
+
+    if(dataStore.error){
+      $('.js-error').show();
+      $('.js-error').html(`<p>Error : ${dataStore.error}<p>`);
+      //  console.log("TESTING ERROR DIV");}
+      dataStore.error=null;}
+    // else{
+    //   $('.js-error').html('');
+    //   $('.js-error').show();
+    //   console.log(dataStore.error);
+    // }
+
+
+
   }
     
   //============================================================================
@@ -136,9 +155,9 @@ const bookmarkList = (function(){
 
   //============================================================================
   function handleRadio(){
-    $(".radio-buttons").on('click', function(event){
-      console.log("radio ran");
-      const currentButton = $("input:checked").val();
+    $('.radio-buttons').on('click', function(event){
+      console.log('radio ran');
+      const currentButton = $('input:checked').val();
       //console.log(currentButton);
     });
   }
@@ -154,9 +173,9 @@ const bookmarkList = (function(){
       console.log('submit ran');
       let itemTitle =  $('.js-bookmark-title-entry').val();
       let itemURL = $('.js-bookmark-url-entry').val();
-      let itemDesc = $(".js-bookmark-description-entry").val();
+      let itemDesc = $('.js-bookmark-description-entry').val();
       console.log(itemDesc);
-      let itemRating = $(".radio-buttons").find("input:checked").val();
+      let itemRating = $('.radio-buttons').find('input:checked').val();
       api.createItem(itemTitle, itemURL, itemDesc, itemRating, 
         
         function(response){
@@ -164,11 +183,14 @@ const bookmarkList = (function(){
           //console.log(response);
           render();
         }, 
+        function(error){
+          dataStore.error = error.responseJSON.message;
+          console.log('=====================');
+          console.log(error);
+          render();
+          dataStore.error = null;
+        }
 
-        function(err){
-          dateStore.error =  error.responseJSON.message;
-          console.log(dataStore.error);
-          render();}
       );
       // $('.js-bookmark-title-entry').val(" ");
       //   $('.js-bookmark-url-entry').val(" ");
@@ -197,28 +219,28 @@ const bookmarkList = (function(){
   //============================================================================    
   function handleRatingsFilter(){
     $('.js-select-ratings').on('click', function(event){
-      console.log("ratings ran");
-      if($(event.target).hasClass("rating1")){
+      console.log('ratings ran');
+      if($(event.target).hasClass('rating1')){
         console.log(1);
         dataStore.filterRating = 1;
         render();
       }
-      if($(event.target).hasClass("rating2")){
+      if($(event.target).hasClass('rating2')){
         console.log(2);
         dataStore.filterRating = 2;
         render();
       }
-      if($(event.target).hasClass("rating3")){
+      if($(event.target).hasClass('rating3')){
         console.log(3);
         dataStore.filterRating = 3;
         render();
       }
-      if($(event.target).hasClass("rating4")){
+      if($(event.target).hasClass('rating4')){
         console.log(4);
         dataStore.filterRating = 4;
         render();
       }
-      if($(event.target).hasClass("rating5")){
+      if($(event.target).hasClass('rating5')){
         console.log(5);
         dataStore.filterRating = 5;
         render();
