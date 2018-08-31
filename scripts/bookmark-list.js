@@ -4,21 +4,13 @@ const bookmarkList = (function(){
 
   function generateCondensedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
-    let itemStars = `<span class="item-title">${item.title}</span>`;
-    return `<div class= "bookmark-item-condensed">
-        <li class="js-item-element" data-item-id="${item.id}">
+    let itemExpanded = `${item.expanded}`
+    return `<div class= "bookmark-item">
+        <li class="js-item-element  list-item-element-condensed expanded-${item.expanded} " data-item-id="${item.id}">
           ${itemTitle}
-            <div class= "bookmark-item-rating">
-            <h4 class= "testing">${item.rating}</h4>
+            <div class="ratings">
+            <h4>${item.rating} Stars</h4>
             </div>
-          <div class="bookmark-item-controls">
-            <button class="js-item-delete">
-              <span class="button-label">Delete</span>
-            </button?
-            <a href=${item.url} target="_blank"><button class="bookmark-delete js-visitSite">
-              <span class="button-label">Visit Site</span>
-            </button></a>
-          </div>
         </li>
         </div>`;
   }
@@ -26,27 +18,31 @@ const bookmarkList = (function(){
   //===========================================================================
   function generateExpandedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
+    let itemExpanded = `${item.expanded}`
     return `<div class= "bookmark-item">
-        <li class="js-item-element  list-item-element" data-item-id="${item.id}">
+        <li class="js-item-element  list-item-element expanded-${item.expanded}" data-item-id="${item.id}">
           ${itemTitle}
             
             <div class="ratings">
             <h4>${item.rating} Stars</h4>
             </div>
+            <div class= "detailed-view">
             <div class= "bookmark-item-description">
             <h4>DESCRIPTION</h4>
             <div class="list-description">
             <p>${item.desc}</p>
             </div>
           <div class="bookmark-item-controls">
-
             <button class="js-item-delete">
               <span class="button-label">Delete</span>
-            </button>
-
-            <a href=${item.url} target="_blank"><button class="bookmark-delete js-visitSite">
+              <a href=${item.url} target="_blank">
+              <button class="bookmark-delete js-visitSite">
               <span class="button-label">Visit Site</span>
-            </button></a>
+            </button>
+            </a>
+            </button>
+            </div>
+            
             </div>
           </div>
         </li>
@@ -63,11 +59,11 @@ const bookmarkList = (function(){
     
     
   //============================================================================
-  // function generateCondensedItemsString(bookmarks) {
+  function generateCondensedItemsString(bookmarks) {
     
-  //   const items = bookmarks.map((item) => generateCondensedElements(item));
-  //   return items.join('');
-  // }
+    const items = bookmarks.map((item) => generateCondensedElements(item));
+    return items.join('');
+  }
     
     
   //============================================================================
@@ -78,21 +74,25 @@ const bookmarkList = (function(){
     let items = dataStore.bookmarks;
     let bookmarkListString = generateBookmarksItemsString(items)
   
-//==========================================================
+    //==========================================================
     items = items.filter(function(items){
-      if( items.rating === dataStore.filterRating){
+      if( items.rating >=dataStore.filterRating){
         return items;
-        ;
+        
       } 
     });
+
+    // items = items.filter(function(items){
+    //   if( items.expanded===true){
+    //     return items;
+        
+    //   } 
+    // });
   
-    if (items.filterRating===1){
-    items = dataStore.bookmarks;
-    }
 
     bookmarkListString = generateBookmarksItemsString(items);
     // render the bookmark list in the DOM
-    //const bookmarkCondensedString = generateCondensedItemsString(items);
+    const bookmarkCondensedString = generateCondensedItemsString(items);
 
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
@@ -158,10 +158,26 @@ const bookmarkList = (function(){
 
   //============================================================================    
   function handleExpanded(){
-    $('.bookmark-lists').click(function(){
-      $('.bookmark-item-description').slideToggle("slow");
+    $('.bookmark-lists').on('click', 'li', function(event){
+      //$('.detailed-view').slideToggle("slow");
       console.log('expanded ran');
+      const id = getItemIdFromElement(event.target);
+      dataStore.toggleExpanded(id);
+      console.log(this);
+      if ($(this).hasClass("expanded-true")){
+        console.log("=======================")
+        console.log($(event.target));
+        $(".bookmark-lists").css( "background-color", "grey" );
+        //$('.bookmark-lists').fadeOut('fast');
+      }
+
+      if ($(this).hasClass("expanded-false")){
+        $(".bookmark-lists").css( "background-color", "white" );
+      }
+      render();
     });
+     
+  
 
   }
 

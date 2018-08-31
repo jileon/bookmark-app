@@ -4,32 +4,40 @@
   
   body {
     font-family: 'Roboto', sans-serif;
+    background-color: white;
    
+  }
+
+  header{
+    background-color: black;
+  }
+
+  h1{
+    font-family: 'Lobster', cursive;
+    color:white;
+    margin-left: 5%;
+
   }
 
  
 
 .description{
-    width : 800px;
+    width : 70%;
     margin-top: 30px;
-    display: inline-block;
+ 
 }
 
 .descriptionInput{
-    height : 150px;
-    width : 600px;
-    display: inline-block;
+    height : 160px;
+    width : 50%;
+    
    
  
 }
 
-.radio-buttons{
-    display: inline-block;
-    margin-top: 30px;
-    margin-right: 10px;
-    padding-top: 10px;
-    margin-left: 30px;
-}
+
+
+
 
 .bookmark-lists{
     list-style: none;
@@ -45,33 +53,33 @@
     border: solid 2px grey;
     height : 225px;
 }
-.title-url-button{
- 
+
+.list-item-element-condensed{
+    color: black;
+    border: solid 2px grey;
+    height : 75px;
 }
-.form-label{
- 
-}
+
 
 h2{
-    display: inline-block;
-    text-align: right;
-
-    float: right;
-    
+    text-align: center;
+    margin-top: 0px;
 }
-
-.header-text{
-    width: 750px;
-    height: 50px;
-    display: inline-block;
-
-}
-
 .input-radio{
-    border: solid 1px grey;
-    width : 800px;
     color: lightblue;
+    text-align: center;
+   
+   
+   
 }
+
+
+.filterRatings {
+    float: right;
+    width: 50%;
+}
+
+
 
 main{
     margin: 0px 50px;
@@ -108,16 +116,27 @@ main{
     text-align: center;
     border: solid 1px black;
     background-color: lightgray;
+    clear: both;
     float: right;
     margin-top: 20px;
+   
 }
+
+.addButton{
+
+    text-align: right;
+    width: 50%;
+    margin-left: 70px;
+  
+}
+
 
 .bookmark-submit-button:hover{
     background-color: pink;
 }
 
 .url-input{
-    width: 390px;
+    width: 100%;
 }
 
 .list-description{
@@ -129,6 +148,12 @@ main{
   
 }
 
+.bookmark-form{
+    border: solid 1px black;
+    color:black;
+    width: 65%;
+    height: 400px;
+}
 
 
 
@@ -156,6 +181,7 @@ main{
     padding: 16px;
     font-size: 16px;
     border: none;
+    width: 100%
 }
 
 .dropdown {
@@ -184,3 +210,4 @@ main{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: pink;}
+

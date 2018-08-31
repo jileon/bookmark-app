@@ -1,26 +1,52 @@
 const dataStore = (function(){
 
+  const bookmarks = [];
+  let empty = false;
+  let filterRating = 1;
+  let error = null;
+
   const addItem = function(item) {
-    this.bookmarks.push(item);
+    item.expanded = false;
+    bookmarks.push(item);
   };
      
   const removeItem = function(id){
-    const index = this.bookmarks.findIndex(bookmark=>{
+    const index = bookmarks.findIndex(bookmark=>{
       return bookmark.id === id;
     });
-    this.bookmarks.splice(index,1);
+    bookmarks.splice(index,1);
 
   };
-//   const bookmarks = Object.assign{expanded:false}
+
+  const findById = function(id) {
+    return bookmarks.find(item => item.id === id);
+   
+  };
+
+
+  const findAndUpdate = function(id, newData) {
+    console.log (id);
+    console.log(this);
+    const item = findById(id);
+    Object.assign(item, newData);
+  };
+
+  const toggleExpanded = function (id){
+    const bookmark = findById(id);
+    bookmark.expanded = !bookmark.expanded;
+  };
+
+  //   const bookmarks = Object.assign{expanded:false}
  
 
   return {
-    bookmarks: [],
-    empty: false,
-    error: null,
-    filterRating: 5,
+    bookmarks,
+    error,
+    filterRating,
     addItem,
     removeItem,
+    findAndUpdate,
+    toggleExpanded,
   };
 
 

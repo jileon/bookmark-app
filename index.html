@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css">
     <title>Janet Bookmarks</title>
 </head>
 <body>
-    <header><h1>Bookmarks</h1></header>
+        <header><h1>Bookmark.it</h1></header>
 <main>
+       
+    <section class="bookmark-form">
     <form id="js-bookmark-list-form">
-    <div>
+    <div class= "form-container">
             
             <div class= "title-url-button">
             <label for="bookmark-title-entry">Title</label>
@@ -22,34 +25,45 @@
             </div>
         
             <div class = "description">
-                <div class= "header-text">
-                        <h2>Minimum Rating</h2>
-                        <h3>description</h3>
-                </div>
-            </div>
-                <div class= "input-radio">
-                        <label for="bookmark-url-entry"></label>
-                    <input type="text" name="url-add" class="js-bookmark-description-entry descriptionInput" placeholder="enter a description">
-                     
-                    <div class= "radio-buttons">
+                
+                    
+                   
+                
+                <label for="js-bookmark-description-entry"></label>
+                    <input type="text" name="desc-add" class="js-bookmark-description-entry descriptionInput" placeholder="enter a description">
+                    <div class= "filterRatings">
+                            <h2>Minimum Rating</h2>
+                            <div class= "input-radio radio-buttons">
                                     <input type="radio" id="rating-5" name="rating" value="5" checked><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
                                         <input type="radio" id="rating-4" name="rating" value="4" >&#9733;&#9733;&#9733;&#9733;&#9734;<br>
                                         <input type="radio" id="rating-3" name="rating" value="3">&#9733;&#9733;&#9733;&#9734;&#9734;<br>
                                         <input type="radio" id="rating-2" name="rating" value="2">&#9733;&#9733;&#9734;&#9734;&#9734;<br>
                                         <input type="radio" id="rating-1" name="rating" value="1">&#9733;&#9734;&#9734;&#9734;&#9734;<br>    
+
                             </div>
-                            <button type="submit" class="bookmark-submit-button">Add Bookmark</button> 
-                            
+
+
                     </div>
+                 
+                 
+            </div>
+                    
+              
+                    
                     
                 
     </div>
-    </form>
+    <div class = "addButton">
+            <button type="submit" class="bookmark-submit-button">Add Bookmark</button> 
+        </div>
+</form>
+  
+</section>
    
 <section class = "list-items">
         <div class="filterArea js-select-ratings">
                 <div class="dropdown">
-                        <button class="dropbtn">Filter By Rating</button>
+                        <button class="dropbtn">Filter By Minimum Rating</button>
                         <div class="dropdown-content">
                         <a href="#" class= "rating5" >&#9733;&#9733;&#9733;&#9733;&#9733; </a>
                         <a href="#" class= "rating4" >&#9733;&#9733;&#9733;&#9733;&#9734;</a>
