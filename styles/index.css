@@ -4,6 +4,7 @@
   
   body {
     font-family: 'Roboto', sans-serif;
+    background-color: rgb(252, 251, 247)
    
   }
 
@@ -16,6 +17,19 @@
     color:white;
     margin-left: 5%;
 
+  }
+
+  .title-url-button{
+      background-color:
+      color:white;
+      font-size: 15px;
+      margin-top: 10px;
+  }
+
+  .filler{
+      height: 40px;
+      background-color: black
+      
   }
 
  
@@ -74,7 +88,7 @@ h2{
 .filterRatings {
    float: right;
     width: 40%;
-    border: solid 1px black;
+   
 }
 
 
@@ -151,6 +165,7 @@ main{
     color:black;
     width: 65%;
     height: 350px;
+    background-color: 
 }
 
 
@@ -217,6 +232,69 @@ main{
 }
 
 
+@media screen and (max-width: 600px) {
+    
+
+    .filterRatings {
+         width: 100%; 
+     }
+
+     .bookmark-form{
+        border: solid 1px black;
+        color:black;
+        width: 65%;
+        height: 400px;
+    }
+    
+
+     h2{
+         font-size: 20px;
+     }
+
+     .input-radio{
+        color: lightblue;
+        text-align: left;
+        font-size: 10px;
+        margin-left: 30px;
+    }
+
+    .bookmark-submit-button{
+        display: inline-block;
+        text-align: left
+        border: solid 1px black;
+        background-color: lightgray;
+        clear: both;
+        float: left;
+        margin-top: 20px;
+       
+    }
+
+    .descriptionInput{
+        height : 140px;
+        width : 100%;
+        margin-left: 10px;
+  
+    }
+
+    .urlSpan{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .url-input{
+        width: 80%;
+        margin-left: 20px;
+    }
+
+    .titleInput{
+        margin-left: 20px;
+    }
+    
+    .titleSpan{
+display: block;
+    }
+
+  }
 
 
 

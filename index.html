@@ -14,23 +14,21 @@
 <main>
      
     <section class="bookmark-form">
-            <div class="js-error"><span class= "error-message">TESTING<span></div>
+            <div class ="filler"></div>
+    <div class="js-error"><span class= "error-message">TESTING<span></div>
     <form id="js-bookmark-list-form">
-    <div class= "form-container">
+   
                  
             <div class= "title-url-button">
-            <label for="bookmark-title-entry">Title</label>
-            <input type="text" name="title-add" class="js-bookmark-title-entry" placeholder="enter title here">
-            <label for="bookmark-url-entry">URL</label>
+                
+            <label for="bookmark-title-entry"><span class= titleSpan>Title</span></label>
+            <input type="text" name="title-add" class="js-bookmark-title-entry titleInput" placeholder="enter title here">
+            <label for="bookmark-url-entry"><span class= "urlSpan">URL</span></label>
             <input type="text" name="url-add" class="js-bookmark-url-entry url-input" value="https://">
             
             </div>
         
             <div class = "description">
-                
-                    
-                   
-                
                 <label for="js-bookmark-description-entry"></label>
                     <input type="text" name="desc-add" class="js-bookmark-description-entry descriptionInput" placeholder="enter a description">
                     <div class= "filterRatings">
@@ -54,7 +52,7 @@
                     
                     
                 
-    </div>
+   
     <div class = "addButton">
             <button type="submit" class="bookmark-submit-button">Add Bookmark</button> 
         </div>
