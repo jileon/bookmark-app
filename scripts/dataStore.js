@@ -18,7 +18,7 @@ const dataStore = (function(){
     bookmarks: [],
     empty: false,
     error: null,
-    filterRating: 1,
+    filterRating: 5,
     addItem,
     removeItem,
   };

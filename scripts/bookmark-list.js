@@ -8,7 +8,7 @@ const bookmarkList = (function(){
         <li class="js-item-element" data-item-id="${item.id}">
           ${itemTitle}
             <div class= "bookmark-item-rating">
-            <h4>${item.rating}</h4>
+            <h4 class= "testing">${item.rating}</h4>
             </div>
           <div class="bookmark-item-controls">
             <button class="js-item-delete">
@@ -61,11 +61,11 @@ const bookmarkList = (function(){
     
     
   //============================================================================
-  function generateCondensedItemsString(bookmarks) {
+  // function generateCondensedItemsString(bookmarks) {
     
-    const items = bookmarks.map((item) => generateCondensedElements(item));
-    return items.join('');
-  }
+  //   const items = bookmarks.map((item) => generateCondensedElements(item));
+  //   return items.join('');
+  // }
     
     
   //============================================================================
@@ -73,13 +73,27 @@ const bookmarkList = (function(){
 
   function render() {
     console.log('`render` ran');
-  
     let items = dataStore.bookmarks;
+    // Filter item list if store prop `searchTerm` is not empty
+    items = items.filter(function(items){
+      if( items.rating === dataStore.filterRating){
+        return items;
+      } 
+      if(dataStore.filterRating==="All"){
+        items = dataStore.bookmarks;
+      }
 
 
+    });
     // render the shopping list in the DOM
     const bookmarkListString = generateBookmarksItemsString(items);
-    const bookmarkCondensedString = generateCondensedItemsString(items);
+    //const bookmarkCondensedString = generateCondensedItemsString(items);
+
+  
+
+
+
+
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
     //$('.bookmark-lists').html(bookmarkCondensedString);
@@ -153,6 +167,39 @@ const bookmarkList = (function(){
 
   }
 
+  //============================================================================    
+  function handleRatingsFilter(){
+    $('.js-select-ratings').on('click', function(event){
+      console.log("ratings ran");
+      if($(event.target).hasClass("rating1")){
+        console.log(1);
+        dataStore.filterRating = 1;
+        render();
+      }
+      if($(event.target).hasClass("rating2")){
+        console.log(2);
+        dataStore.filterRating = 2;
+        render();
+      }
+      if($(event.target).hasClass("rating3")){
+        console.log(3);
+        dataStore.filterRating = 3;
+        render();
+      }
+      if($(event.target).hasClass("rating4")){
+        console.log(4);
+        dataStore.filterRating = 4;
+        render();
+      }
+      if($(event.target).hasClass("rating5")){
+        console.log(5);
+        dataStore.filterRating = 5;
+        render();
+       
+      }
+    });
+  }
+
     
     
     
@@ -161,6 +208,8 @@ const bookmarkList = (function(){
     handleAddSubmit();
     handleRadio(); 
     handleExpanded();
+    handleRatingsFilter();
+
    
   }
     
