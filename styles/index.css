@@ -16,15 +16,33 @@
     font-family: 'Lobster', cursive;
     color:white;
     margin-left: 5%;
-
   }
 
   .title-url-button{
-      background-color:
-      color:white;
-      font-size: 15px;
+      background-color;
+      color: black;
       margin-top: 10px;
+      margin-left: 40px;
+      padding: 20px;
   }
+
+  .urlSpan{
+ 
+    margin-top: 20px;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    text-transform: lowercase;
+    text-align: center;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.titleSpan{
+
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    text-align: center;
+    }
 
   .filler{
       height: 40px;
@@ -45,7 +63,7 @@
     margin-bottom: 80px;
     padding: 20px;
     border: solid 1px grey;
-    width: 65%;
+   
     
 }
 
@@ -70,10 +88,11 @@
 
 .descriptionInput{
     height : 140px;
-    width : 55%;
-    margin-left: 10px;
+    width : 50%;
+    margin-left: 40px;
     border: solid 1px black;
 }
+
 h2{
     text-align: center;
     margin-top: 0px;
@@ -94,7 +113,10 @@ h2{
 
 
 main{
-    margin: 0px 50px;
+    margin: 0px auto;
+    width: 60%;
+    max-width: 1100px;
+    min-width: 500px
 }
 
 .bookmark-item{
@@ -123,14 +145,24 @@ main{
     margin-top: 10px;
 }
 */
+
+.addButton{
+clear: both;
+margin-top: 20px;
+display: block;
+float: right;
+}
+
+
+
 .bookmark-submit-button{
-    display: inline-block;
+    display: block;
     text-align: center;
     border: solid 1px black;
     background-color: lightgray;
-    clear: both;
-    float: right;
     margin-top: 20px;
+    font-family: 'Lobster', cursive;
+    font-size: 30px
    
 }
 
@@ -148,7 +180,7 @@ main{
 }
 
 .url-input{
-    width: 50%;
+    width: 40%;
 }
 
 .list-description{
@@ -163,7 +195,7 @@ main{
 .bookmark-form{
     border: solid 1px black;
     color:black;
-    width: 65%;
+    
     height: 350px;
     background-color: 
 }
@@ -243,7 +275,7 @@ main{
         border: solid 1px black;
         color:black;
         width: 65%;
-        height: 400px;
+        height: 500px;
     }
     
 
@@ -266,6 +298,10 @@ main{
         clear: both;
         float: left;
         margin-top: 20px;
+        font-family: 'Lobster', cursive;
+        font-size: 25px
+           
+        
        
     }
 
@@ -279,22 +315,113 @@ main{
     .urlSpan{
         display: block;
         margin-top: 20px;
+        font-family: 'Lobster', cursive;
+        font-size: 30px;
+        text-transform: lowercase;
+        text-align: center;
     }
+
+    .titleSpan{
+        display: block;
+        font-family: 'Lobster', cursive;
+        font-size: 30px;
+        text-align: center;
+        }
 
     .url-input{
         width: 80%;
         margin-left: 20px;
+        
     }
 
     .titleInput{
         margin-left: 20px;
     }
     
-    .titleSpan{
-display: block;
-    }
+    
 
   }
+
+
+  @media screen and (max-width: 1100px) {
+    
+
+    .filterRatings {
+         width: 100%; 
+     }
+
+     .bookmark-form{
+        border: solid 1px black;
+        color:black;
+        width: 65%;
+        height: 600px;
+    }
+    
+
+     h2{
+         font-size: 20px;
+         margin-top: 20px;
+     }
+
+     .input-radio{
+        color: lightblue;
+        text-align: center
+        font-size: 20px;
+        margin-left: 30px;
+    }
+
+    .bookmark-submit-button{
+        display: inline-block;
+        text-align: left
+        border: solid 1px black;
+        background-color: lightgray;
+        clear: both;
+        float: left;
+        margin-top: 20px;
+       
+    }
+
+    .descriptionInput{
+        height : 140px;
+        width : 100%;
+        margin-left: 50px;
+  
+    }
+
+    .urlSpan{
+        display: block;
+        margin-top: 20px;
+        margin-left: 20px;
+        font-family: 'Lobster', cursive;
+        font-size: 30px;
+        text-transform: lowercase;
+        text-align: left;
+    }
+
+    .titleSpan{
+        display: block;
+        font-family: 'Lobster', cursive;
+        font-size: 30px;
+        text-align: left;
+        margin-left: 20px;
+        }
+
+    .url-input{
+        width: 80%;
+        margin-left: 20px;
+        
+    }
+
+    .titleInput{
+        margin-left: 20px;
+    }
+    
+    
+
+  }
+
+
+
 
 
 
