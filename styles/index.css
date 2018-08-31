@@ -99,3 +99,7 @@ main{
 .url-input{
     width: 390px;
 }
+
+.bookmark-item-controls{
+    display: none;
+}

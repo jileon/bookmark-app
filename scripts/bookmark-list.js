@@ -4,23 +4,19 @@ const bookmarkList = (function(){
 
   function generateCondensedElements (item){
     let itemTitle = `<span class="item-title">${item.title}</span>`;
-    return `<div class= "bookmark-item">
+    return `<div class= "bookmark-item-condensed">
         <li class="js-item-element" data-item-id="${item.id}">
           ${itemTitle}
-            <div class= "bookmark-item-description">
-            <h4>description</h4>
+            <div class= "bookmark-item-rating">
             <h4>${item.rating}</h4>
-            <p>${item.desc}</p>
             </div>
           <div class="bookmark-item-controls">
-
             <button class="js-item-delete">
               <span class="button-label">Delete</span>
-            </button>
-
-            <button class="bookmark-delete js-visitSite">
+            </button?
+            <a href=${item.url} target="_blank"><button class="bookmark-delete js-visitSite">
               <span class="button-label">Visit Site</span>
-            </button>
+            </button></a>
           </div>
         </li>
         </div>`;
@@ -34,18 +30,18 @@ const bookmarkList = (function(){
           ${itemTitle}
             <div class= "bookmark-item-description">
             <h4>DESCRIPTION</h4>
-            <h4>${item.rating} Stars</h4>
             <p>${item.desc}</p>
             </div>
+            <h4>${item.rating} Stars</h4>
           <div class="bookmark-item-controls">
 
             <button class="js-item-delete">
               <span class="button-label">Delete</span>
             </button>
 
-            <button class="bookmark-delete js-visitSite">
+            <a href=${item.url} target="_blank"><button class="bookmark-delete js-visitSite">
               <span class="button-label">Visit Site</span>
-            </button>
+            </button></a>
           </div>
         </li>
         </div>`;
@@ -61,6 +57,16 @@ const bookmarkList = (function(){
     
     
   //============================================================================
+  function generateCondensedItemsString(bookmarks) {
+    
+    const items = bookmarks.map((item) => generateCondensedElements(item));
+    return items.join('');
+  }
+    
+    
+  //============================================================================
+
+
   function render() {
     console.log('`render` ran');
   
@@ -69,9 +75,10 @@ const bookmarkList = (function(){
 
     // render the shopping list in the DOM
     const bookmarkListString = generateBookmarksItemsString(items);
-      
+    const bookmarkCondensedString = generateCondensedItemsString(items);
     // insert that HTML into the DOM
     $('.bookmark-lists').html(bookmarkListString);
+    //$('.bookmark-lists').html(bookmarkCondensedString);
   }
     
   //============================================================================
@@ -98,8 +105,8 @@ const bookmarkList = (function(){
   function handleRadio(){
     $(".radio-buttons").on('click', function(event){
       console.log("radio ran");
-     const currentButton = $("input:checked").val()
-     //console.log(currentButton);
+      const currentButton = $("input:checked").val()
+      //console.log(currentButton);
     });
   }
 
@@ -131,20 +138,25 @@ const bookmarkList = (function(){
 
     });
   }
-    
-    
-    
-    
-    
-    
-    
+
+
+  //============================================================================    
+  function handleExpanded(){
+    $('.bookmark-lists').click(function(){
+      $('.bookmark-item-controls').slideToggle("slow");
+      console.log('expanded ran');
+    });
+
+  }
+
     
     
     
   function bindEventListeners() {
     deleteBookmark();
     handleAddSubmit();
-    handleRadio();
+    handleRadio(); 
+    handleExpanded();
    
   }
     
