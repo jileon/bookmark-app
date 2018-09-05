@@ -118,7 +118,7 @@ h2{
 main{
     margin: 0px auto;
     width: 60%;
-    max-width: 1100px;
+    max-width: 2000px;
     min-width: 500px
 }
 
@@ -265,7 +265,7 @@ float: right;
     height: 20px;
 }
 
-
+/*=======================================================================================*/
 @media screen and (max-width: 600px) {
     
 
@@ -274,21 +274,21 @@ float: right;
      }
 
      .bookmark-form{
-        border: solid 1px black;
+        border: solid 1px red; 
         color:black;
-        
-        height: 500px;
+        height: 800px;
     }
     
 
      h2{
          font-size: 20px;
+        
      }
 
      .input-radio{
-        color: lightblue;
+        color: rgb(11, 138, 180);
         text-align: left;
-        font-size: 10px;
+        font-size: 20px;
         margin-left: 30px;
     }
 
@@ -344,8 +344,25 @@ float: right;
 
   }
 
+  /*=======================================================================================*/
+@media screen and (max-width: 1900px) {
+    .input-radio{
+        color: lightblue;
+        text-align: center;
+        font-size: 30px;
+        margin-left: 30px;
+    }
 
-  @media screen and (max-width: 1100px) {
+    .bookmark-form{
+        border: solid 1px black;
+        color:black;
+        height: 500px;
+    }
+  }
+
+
+/*=======================================================================================*/
+  @media screen and (max-width: 1600px) {
     
 
     .filterRatings {
@@ -355,7 +372,7 @@ float: right;
      .bookmark-form{
         border: solid 1px black;
         color:black;
-        height: 600px;
+        height: 700px;
     }
     
 
@@ -366,8 +383,8 @@ float: right;
 
      .input-radio{
         color: lightblue;
-        text-align: center
-        font-size: 20px;
+        text-align: center;
+        font-size: 30px;
         margin-left: 30px;
     }
 
@@ -416,10 +433,11 @@ float: right;
     .titleInput{
         margin-left: 20px;
     }
-    
-    
 
   }
+
+
+
 
 
 

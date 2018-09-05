@@ -7,7 +7,8 @@ const api = (function(){
 
   const createItem = function(title, url, desc, rating, onSuccess, onError ) {
     console.log(desc);
-    const newItem = JSON.stringify(
+    const newItem = 
+    JSON.stringify(
       {
         title: title,
         url: url,
@@ -15,6 +16,23 @@ const api = (function(){
         rating: rating,
         
       });
+
+ const settings = {
+      url: BASE_URL + '/bookmarks',
+      method: 'POST',
+      contentType: 'application/json',
+      data: newItem,
+      //  dataType: 'json',
+      // success: onSuccess,
+      // error: onError
+      
+    };
+
+
+
+ //return $.post(BASE_URL + '/bookmarks', function(data){});
+ 
+
    
     return $.ajax({
       url: BASE_URL + '/bookmarks',
