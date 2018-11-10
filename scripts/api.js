@@ -22,18 +22,9 @@ const api = (function(){
       method: 'POST',
       contentType: 'application/json',
       data: newItem,
-      //  dataType: 'json',
-      // success: onSuccess,
-      // error: onError
-      
+ 
     };
 
-
-
- //return $.post(BASE_URL + '/bookmarks', function(data){});
- 
-
-   
     return $.ajax({
       url: BASE_URL + '/bookmarks',
       method: 'POST',

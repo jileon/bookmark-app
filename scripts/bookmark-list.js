@@ -77,16 +77,10 @@ const bookmarkList = (function(){
 
 
   function render() {
-    console.log('`render` ran');
     let items = dataStore.bookmarks;
     let bookmarkListString = generateBookmarksItemsString(items);
 
-    // if (dataStore.error) {
-    //   const el = generateError(dataStore.error);
-    //   $('.error-container').html(el);
-    // } else {
-    //   $('.error-container').empty();
-    // }
+
   
     //==========================================================
     items = items.filter(function(items){
@@ -96,12 +90,6 @@ const bookmarkList = (function(){
       } 
     });
 
-    // items = items.filter(function(items){
-    //   if( items.expanded===true){
-    //     return items;
-        
-    //   } 
-    // });
   
 
     bookmarkListString = generateBookmarksItemsString(items);
@@ -158,7 +146,7 @@ const bookmarkList = (function(){
 
 
   //============================================================================
-  //console.log($('#js-bookmark-list-form').find("#rating-4").val());
+
   
   function handleAddSubmit(){
    
@@ -186,9 +174,6 @@ const bookmarkList = (function(){
         }
 
       );
-      // $('.js-bookmark-title-entry').val(" ");
-      //   $('.js-bookmark-url-entry').val(" ");
-      //   $(".js-bookmark-description-entry").val(" ");
 
 
     });
